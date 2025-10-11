@@ -44,6 +44,11 @@ sum_val = a + b
 product_val = a * 2
 print(sum_val)
 print(product_val)
+
+#除法
+3/2 =1.5
+5//2 =2 # 整除
+5 % 2 =1 # 取余
 ```
 
 
@@ -111,6 +116,7 @@ my_list.append('new_item')
 print(my_list)
 
 # 删除元素
+my_list.pop(0)# 删除第一个元素
 my_list.pop() # 删除最后一个元素
 del my_list[1] # 删除指定索引的元素
 print(my_list)
@@ -118,6 +124,12 @@ print(my_list)
 # 列表推导式
 squares = [x**2 for x in range(5)]
 print(squares) # [0, 1, 4, 9, 16]
+
+#常用函数
+len(my_list) #长度
+my_list.clear #删除
+my_list.reverse #反转
+
 ```
 
 
@@ -210,10 +222,12 @@ my_dict['gender'] = 'Female'
 print(my_dict)
 
 # 删除键值对
-del my_dict['city']
+my_dict.pop('city')
 print(my_dict)
 
 # 遍历字典
+for key in my_dict:
+for value in my_dict.values()
 for key, value in my_dict.items():
     print(f"{key}: {value}")
 ```
@@ -231,6 +245,8 @@ for key, value in my_dict.items():
 
 
 Python 的 `array` 模块提供了一种比列表更节省空间的数组，它要求所有元素必须是同一类型。
+
+读很快。
 
 **基本用法:**
 

@@ -1,0 +1,14 @@
+from typing import List
+class Solution:
+    def reverseString(self, s: List[str]) -> None:
+        i,j = 0 ,len(s)-1
+        while i < j :
+            s[i] ,s[j] = s[j] ,s[i]
+            i +=1
+            j -=1
+        return s
+        
+# Example usage:
+solution = Solution()
+input_str = ["h","e","l","l","o"]
+print(solution.reverseString(input_str))  # Output: ["o","l","l","e

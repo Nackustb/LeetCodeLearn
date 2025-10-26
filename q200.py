@@ -27,33 +27,34 @@ from typing import List
 
 
 # BFS
+from collections import deque
+
 class Solution:
     def numIslands(self, grid: List[List[str]]) -> int:
-        if grid is None:
+        if not grid:
             return 0
 
         rows, cols = len(grid), len(grid[0])
         count = 0
 
         def bfs(r, c):
-            queue = [(r, c)]
+            q = deque([(r, c)])
             grid[r][c] = '0'
-            while queue:
-                row, col = queue.pop(0)
-                directions = [(-1, 0), (1, 0), (0, -1), (0, 1)]
-                for dr, dc in directions:
-                    nr, nc = row + dr, col + dc
-                    if 0 <= nr < rows and 0 <= nc < cols and grid[nr][nc] == '1':
-                        grid[nr][nc] = '0'
-                        queue.append((nr, nc))
+            while q:
+                x, y = q.popleft()
+                for nx, ny in [(x-1, y), (x+1, y), (x, y-1), (x, y+1)]:
+                    if 0 <= nx < rows and 0 <= ny < cols and grid[nx][ny] == '1':
+                        grid[nx][ny] = '0'
+                        q.append((nx, ny))
 
-        for r in range(rows):
-            for c in range(cols):
-                if grid[r][c] == '1':
-                    count += 1      # 发现一个新岛屿
-                    bfs(r, c)       # 把整座岛都淹掉
+        for i in range(rows):
+            for j in range(cols):
+                if grid[i][j] == '1':
+                    count += 1
+                    bfs(i, j)
 
         return count
+
 
 # Example usage:
 solution = Solution()   
